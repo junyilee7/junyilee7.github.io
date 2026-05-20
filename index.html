@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junyi Lee · Hydro-tempo-dynamics</title>
+  <meta name="description" content="Junyi Lee (李俊逸) is a hydrologist and geographer studying water-time dynamics in subtropical mountain catchments, combining stable isotopes, recession analysis, and machine learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1d3557;
+      --ink-soft: #264653;
+      --mid: #5a6c70;
+      --hair: #d8dde0;
+      --bg: #fefcf8;
+      --accent: #2a9d8f;
+      --accent-warm: #e76f51;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--ink-soft);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    a:hover { border-bottom-color: var(--accent); }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 64px 28px;
+    }
+    header.hero {
+      border-bottom: 1px solid var(--hair);
+      padding-bottom: 36px;
+      margin-bottom: 36px;
+    }
+    .name {
+      font-size: 38px;
+      margin-bottom: 4px;
+    }
+    .name-zh {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 22px;
+      color: var(--mid);
+      margin-left: 10px;
+      font-weight: 400;
+    }
+    .tagline {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-top: 6px;
+    }
+    .role {
+      font-size: 15px;
+      color: var(--mid);
+      margin-top: 12px;
+    }
+    .links {
+      margin-top: 18px;
+      font-size: 14px;
+    }
+    .links a {
+      margin-right: 18px;
+      color: var(--ink);
+    }
+    section { margin-bottom: 48px; }
+    section h2 {
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 18px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    section p { margin: 0 0 14px; }
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .interest-card {
+      background: #fff;
+      border: 1px solid var(--hair);
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .interest-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .interest-card p {
+      font-size: 14px;
+      color: var(--mid);
+      margin: 0;
+    }
+    .pub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .pub-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hair);
+      font-size: 14.5px;
+    }
+    .pub-list li:last-child { border-bottom: 0; }
+    .pub-list em { color: var(--ink); }
+    .pub-list .venue { color: var(--accent); font-style: italic; }
+    .pub-list .role-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #f1f0e3;
+      color: var(--ink);
+      margin-left: 8px;
+      vertical-align: 1px;
+    }
+    .teaching-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 10px;
+    }
+    .teaching-list li {
+      font-size: 14px;
+      padding: 8px 0;
+      color: var(--ink-soft);
+    }
+    .teaching-list li::before {
+      content: "▸";
+      color: var(--accent);
+      margin-right: 8px;
+    }
+    .contact {
+      background: #fff;
+      border: 1px solid var(--hair);
+      border-radius: 8px;
+      padding: 22px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 14.5px;
+    }
+    .contact div strong {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    footer {
+      border-top: 1px solid var(--hair);
+      padding-top: 22px;
+      font-size: 12px;
+      color: var(--mid);
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 40px 22px; }
+      .name { font-size: 30px; }
+      .name-zh { font-size: 18px; display: block; margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="hero">
+      <h1 class="name">Junyi Lee<span class="name-zh">李俊逸</span></h1>
+      <p class="tagline">Hydrologist · Tracking water through landscapes of time.</p>
+      <p class="role">Postdoctoral Researcher · Department of Geography, National Taiwan Normal University</p>
+      <p class="links">
+        <a href="mailto:wan90218@gmail.com">Email</a>
+        <a href="https://github.com/junyilee7" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com.tw/citations?hl=zh-TW&user=cKHYRt8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://orcid.org/0000-0002-4442-0264" target="_blank" rel="noopener">ORCID</a>
+      </p>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I study how water moves through landscapes — not just <em>where</em>, but
+        <em>when</em>. My research uses stable isotopes, heat tracers, recession
+        analysis and, more recently, machine learning to follow the journey of
+        water from rainfall through soils, rock and channels to streams and
+        coastal wetlands. The unifying framework is <strong>hydro-tempo-dynamics</strong>:
+        water's <em>response time</em> shapes how a catchment delivers floods,
+        while its <em>transit time</em> shapes how it delivers solutes, sediments
+        and ecological signals.
+      </p>
+      <p>
+        My empirical home base is subtropical mountainous Taiwan, with field
+        sites in the Fushan Experimental Forest, the Feitsui reservoir
+        catchment, and the Danshui River basin. I am increasingly interested
+        in extending these methods to human-engineered water systems and to
+        AI-assisted hydrological prediction.
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research Interests</h2>
+      <div class="interests-grid">
+        <div class="interest-card">
+          <h3>Hydrologic transit and response time</h3>
+          <p>Recession analysis, new vs. old water separation, StorAge Selection (SAS) framework.</p>
+        </div>
+        <div class="interest-card">
+          <h3>Stable isotopes &amp; heat tracers</h3>
+          <p>δ¹⁸O, δD, d-excess, ¹⁷O-excess and stream-temperature tracing in mountain catchments.</p>
+        </div>
+        <div class="interest-card">
+          <h3>Machine learning in hydrology</h3>
+          <p>Random Forest, LSTM and explainable AI for water-age inference and early warning.</p>
+        </div>
+        <div class="interest-card">
+          <h3>Socio-hydrology &amp; citizen science</h3>
+          <p>Human-engineered irrigation systems and participatory water monitoring.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Selected Publications</h2>
+      <ul class="pub-list">
+        <li>
+          Chen, J.-P., Chen, Y.-C., <strong>Lee, J.-Y.</strong>, Chiang, L.-C., Chang, F.-J., &amp; Huang, J.-C. (2026).
+          Uncertainty of temporal and spatial δ²H interpolation on young water fraction estimates using the StorAge Selection function in subtropical mountain catchments.
+          <span class="venue">Water, 18(8), 958.</span>
+        </li>
+        <li>
+          Lee, T.-Y., Chen, Y.-C., Chen, S.-E., <strong>Lee, J.-Y.</strong>, Chiu, C.-C., &amp; Chen, C.-J. (2026).
+          Decoupling of precipitation and streamflow trends induced by forest expansion: Evidence from time-varying Budyko analysis.
+          <span class="venue">Journal of Hydrology: Regional Studies, 64, 103317.</span>
+        </li>
+        <li>
+          <strong>Lee, J.-Y.</strong>, Yang, C.-J., Peng, T.-R., Lee, T.-Y., &amp; Huang, J.-C. (2023).
+          Landscape structures regulate the contrasting response of recession along rainfall amounts.
+          <span class="venue">Hydrology and Earth System Sciences, 27(23), 4279–4294.</span>
+          <span class="role-tag">First author</span>
+        </li>
+        <li>
+          Peng, T.-R., <strong>Lee, J.-Y.</strong>*, Zhan, W.-J., Liu, T.-S., Lin, Y.-W., Chu, T.-M., Tung, C.-C., &amp; Chiang, H.-T. (2024).
+          Refining the origin of thermal water using stable isotope, hydrochemistry, and GIS approaches in Jiaoxi, Taiwan.
+          <span class="venue">Hydrological Processes, 38(2), e15101.</span>
+          <span class="role-tag">Corresponding</span>
+        </li>
+        <li>
+          Peng, T.-R., Lee, H.-F., Liu, T.-S., <strong>Lee, J.-Y.</strong>*, &amp; Lu, Y.-C. (2024).
+          Topographic influence on ecohydrology in volcanic watersheds of the Western Pacific monsoon area.
+          <span class="venue">Isotopes in Environmental and Health Studies, 60(1), 32–52.</span>
+          <span class="role-tag">Corresponding</span>
+        </li>
+        <li>
+          <strong>Lee, J.-Y.</strong>, Shih, Y.-T., Lan, C.-Y., Lee, T.-Y., Peng, T.-R., Lee, C.-T., &amp; Huang, J.-C. (2020).
+          Rainstorm magnitude likely regulates event water fraction and its transit time in mesoscale mountainous catchments.
+          <span class="venue">Water, 12(4), 1169.</span>
+          <span class="role-tag">First author</span>
+        </li>
+        <li>
+          Chang, C.-T., Huang, J.-C., Wang, L., Wang, H.-H., <strong>Lee, J.-Y.</strong>, &amp; Lin, T.-C. (2024).
+          The limited effect of reduced typhoon frequency on stream hydrochemistry in a subtropical forest watershed.
+          <span class="venue">Earth's Future, 12(6), e2023EF004056.</span>
+        </li>
+      </ul>
+      <p style="font-size: 13px; color: var(--mid); margin-top: 16px;">
+        19 peer-reviewed SCI publications in total. Full list on
+        <a href="https://scholar.google.com.tw/citations?hl=zh-TW&user=cKHYRt8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+      </p>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>
+        I develop open teaching materials that bring AI and computational
+        methods into geography courses, with a focus on physical geography,
+        GIS, remote sensing, and hydrology. My guiding principle is that AI
+        should be a thinking tool students learn to evaluate critically — not
+        an oracle to defer to.
+      </p>
+      <p style="margin-top: 14px;">
+        Reproducible teaching notebooks are openly hosted and updated over time at
+        <a href="https://github.com/junyilee7/geography-ai-teaching" target="_blank" rel="noopener">github.com/junyilee7/geography-ai-teaching</a>.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <div>
+          <strong>Email</strong>
+          <a href="mailto:wan90218@gmail.com">wan90218@gmail.com</a>
+        </div>
+        <div>
+          <strong>Affiliation</strong>
+          Department of Geography<br>National Taiwan Normal University
+        </div>
+        <div>
+          <strong>Location</strong>
+          Taipei, Taiwan
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Last updated 2026 · Built with plain HTML &amp; care.
+    </footer>
+  </div>
+</body>
+</html>
